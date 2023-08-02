@@ -10,10 +10,10 @@ import {
   activeRouteReducer,
   routePolylineReducer,
   mapReducer,
+  routeDataReducer
 } from "../slices";
 
 const sagaMiddleware = createSagaMiddleware();
-
 
 const isSerializable = (value) => Iterable.isIterable(value) || isPlain(value)
 
@@ -31,9 +31,8 @@ export const store = configureStore({
     activeRoute: activeRouteReducer,
     routePolyline: routePolylineReducer,
     map: mapReducer,
+    route: routeDataReducer
   },
-  // middleware: (getDefaultMiddleware) =>
-  // getDefaultMiddleware().concat(sagaMiddleware)
 
   middleware:
         (getdefaultMiddleware) =>

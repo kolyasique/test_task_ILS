@@ -1,7 +1,7 @@
 import MapContainerComponent from './components/MapContainerComponent';
-import MenuComponent from './components/MenuComponent';
 
 import cl from './App.module.scss'
+import TableComponent from './components/TableComponent';
 function App() {
   return (
     <div className="App">
@@ -11,7 +11,7 @@ function App() {
                 <MapContainerComponent/>
               </div>
               <div className={cl.listWrapper}>
-                <MenuComponent />
+              <TableComponent/>
               </div> 
           </div>
         </div>

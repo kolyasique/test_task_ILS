@@ -14,27 +14,10 @@ const activeRouteSlice = createSlice({
   initialState,
   reducers: {
     setActiveRoute: (state, action) => {
-      state.id = action.payload
-      if(action.payload === 'tmp-0'){
-        state.pointa = "59.84660399, 30.29496392"
-        state.pointb = "59.82934196, 30.42423701"
-        state.pointc = "59.83567701, 30.38064206"
-      }
-      else if(action.payload === 'tmp-1'){
-        state.pointa = "59.82934196, 30.42423701"
-        state.pointb = "59.82761295, 30.41705607"
-        state.pointc = "59.84660399, 30.29496392"
-      }
-      else if(action.payload === 'tmp-2'){
-        state.pointa = "59.83567701, 30.38064206"
-        state.pointb = "59.84660399, 30.29496392"
-        state.pointc =  "59.82761295, 30.41705607"
-      }
-    else {
-      state.pointa = ""
-      state.pointb = ""
-      state.pointc =  ""
-    }
+      state.id = action.payload.key
+      state.pointa = action.payload.pointa
+      state.pointb = action.payload.pointb
+      state.pointc = action.payload.pointc
       const coordinatesPoints = `${state.pointa};${state.pointb};${state.pointc}`;
       state.coordinates = coordinatesPoints?.split(";").map((el) => el.split(",").reverse().join(",")).join(";").replace(/\s/g, "");
     },
